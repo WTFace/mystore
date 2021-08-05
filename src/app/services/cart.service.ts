@@ -17,7 +17,6 @@ export class CartService {
       amount: amount
     }
     this.carts.push(cart);
-    console.log(this.carts)
   }
 
   getCarts(): Cart[]{

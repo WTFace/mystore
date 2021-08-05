@@ -23,4 +23,15 @@ export class CartComponent implements OnInit {
     });
     return total;
   }
+
+  updateCart(cart: Cart, amount: string): void {
+    const amt = Number(amount);
+
+    if (isNaN(amt)) {
+      alert('invalid amount');
+    } else{
+      cart.amount = amt;
+      this.sum = this.getTotalCost();
+    }
+  }
 }

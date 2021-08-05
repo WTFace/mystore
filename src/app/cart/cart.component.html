@@ -6,11 +6,11 @@
                 <div class="p-4">
                     <div>{{cart.product.name}}</div>
                     <div>{{cart.product.price}}</div>
-                    <div>amount: <input type="number" value="{{cart.amount}}" style="width: 40%;"></div>
+                    <div>amount: <input #amt type="number" min="1" (change)="updateCart(cart, amt.value)" value="{{cart.amount}}" style="width: 40%;"></div>
                 </div>
             </div>
         </div>
-        <div>total: ${{sum}}</div>
+        <div>total: ${{sum.toFixed(2)}}</div>
     </div>
-    <form class="col-md-6"></form>
+    <div></div>
 </div>
