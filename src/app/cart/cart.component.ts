@@ -9,10 +9,18 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
   carts: Cart[] = [];
+  sum = 0;
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.carts = this.cartService.getCarts();
+    this.sum = this.getTotalCost();
   }
-
+  getTotalCost(){
+    let total = 0;
+    this.carts.map(x => {
+      total += x.product.price * x.amount
+    });
+    return total;
+  }
 }
