@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
     this.sum = this.cartService.getTotalCost();
   }
   
-  updateCart(cart: Cart, amount: string): void {
+  changeAmount(cart: Cart, amount: string): void {
     const amt = Number(amount);
 
     if (isNaN(amt)) {
@@ -26,5 +26,10 @@ export class CartComponent implements OnInit {
       cart.amount = amt;
       this.sum = this.cartService.getTotalCost();
     }
+  }
+
+  remove(cart: Cart){
+    this.carts = this.cartService.removeFromCart(cart);
+    this.sum = this.cartService.getTotalCost();
   }
 }

@@ -17,6 +17,7 @@ export class CartService {
       amount: amount
     }
     this.carts.push(cart);
+    alert(`${amount} items are added`);
   }
 
   getCarts(): Cart[]{
@@ -29,5 +30,10 @@ export class CartService {
       total += x.product.price * x.amount
     });
     return total;
+  }
+
+  removeFromCart(cart: Cart): Cart[]{
+    this.carts = this.carts.filter(x => x.product_id !== cart.product_id);
+    return this.carts;
   }
 }

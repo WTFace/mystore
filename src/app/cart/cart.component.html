@@ -8,10 +8,11 @@
                     <div>{{cart.product.price}}</div>
                     <div>amount: 
                         <input #amt type="number" min="1" 
-                        (change)="updateCart(cart, amt.value)" 
+                        (change)="changeAmount(cart, amt.value)" 
                         value="{{cart.amount}}" 
                         style="width: 40%;">
                     </div>
+                    <button class="btn btn-sm btn-danger mt-2" (click)="remove(cart)">remove</button>
                 </div>
             </div>
         </div>
