@@ -12,6 +12,8 @@ import { NavComponent } from './nav/nav.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { OrderCompleteComponent } from './order-complete/order-complete.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AddCartFormComponent } from './add-cart-form/add-cart-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { OrderCompleteComponent } from './order-complete/order-complete.componen
     NavComponent,
     CartComponent,
     OrderFormComponent,
-    OrderCompleteComponent
+    OrderCompleteComponent,
+    ProductDetailComponent,
+    AddCartFormComponent
   ],
   imports: [
     BrowserModule,

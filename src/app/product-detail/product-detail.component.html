@@ -1,0 +1,9 @@
+<div class="col-md-4 m-auto">
+    <img src="{{product.url}}" alt="{{product.name}}" width="100%" height="50%">
+    <div class="my-3">{{product.name}} <span class="ml-2 font-weight-bold">${{product.price}}</span></div>
+    <div class="my-3">{{product.description}}</div>
+    
+    <app-add-cart-form [product]="product"></app-add-cart-form>
+    
+    <a class="btn btn-link text-primary" routerLink="/">back to product list</a>
+</div>
