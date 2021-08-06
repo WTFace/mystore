@@ -14,16 +14,9 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.carts = this.cartService.getCarts();
-    this.sum = this.getTotalCost();
+    this.sum = this.cartService.getTotalCost();
   }
-  getTotalCost(){
-    let total = 0;
-    this.carts.map(x => {
-      total += x.product.price * x.amount
-    });
-    return total;
-  }
-
+  
   updateCart(cart: Cart, amount: string): void {
     const amt = Number(amount);
 
@@ -31,7 +24,7 @@ export class CartComponent implements OnInit {
       alert('invalid amount');
     } else{
       cart.amount = amt;
-      this.sum = this.getTotalCost();
+      this.sum = this.cartService.getTotalCost();
     }
   }
 }

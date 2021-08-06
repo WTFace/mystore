@@ -22,4 +22,12 @@ export class CartService {
   getCarts(): Cart[]{
     return this.carts;
   }
+
+  getTotalCost(){
+    let total = 0;
+    this.carts.map(x => {
+      total += x.product.price * x.amount
+    });
+    return total;
+  }
 }

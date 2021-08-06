@@ -1,0 +1,14 @@
+<form #form="ngForm" (ngSubmit)="order()" class="d-flex flex-column">
+    <input type="hidden" name="sum" [(ngModel)]="sum" value="${{sum.toFixed(2)}}">
+
+    <label for="">name</label>
+    <input type="text" name="name" [(ngModel)]="name" minlength="4" required>
+
+    <label for="">address</label>
+    <input type="text" name="address" [(ngModel)]="address" minlength="6" required>
+
+    <label for="">credit card number (numbers only)</label>
+    <input type="text" name="card" [(ngModel)]="card" minlength="16" pattern="[0-9]{16}" required>
+
+    <button [disabled]="form.invalid" class="btn btn-primary mt-2">order</button>
+</form>

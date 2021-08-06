@@ -1,16 +1,21 @@
 <div class="d-flex px-5">
     <div class="col-md-6">
-        <div style="height:70vh; overflow-y: scroll;">
+        <div style="height:80vh; overflow-y: scroll;">
             <div *ngFor="let cart of carts" class="py-3 d-flex align-items-center">
                 <img src="{{cart.product.url}}" alt="" width="50%">
                 <div class="p-4">
                     <div>{{cart.product.name}}</div>
                     <div>{{cart.product.price}}</div>
-                    <div>amount: <input #amt type="number" min="1" (change)="updateCart(cart, amt.value)" value="{{cart.amount}}" style="width: 40%;"></div>
+                    <div>amount: 
+                        <input #amt type="number" min="1" 
+                        (change)="updateCart(cart, amt.value)" 
+                        value="{{cart.amount}}" 
+                        style="width: 40%;">
+                    </div>
                 </div>
             </div>
         </div>
         <div>total: ${{sum.toFixed(2)}}</div>
     </div>
-    <div></div>
+    <app-order-form [sum]="sum"></app-order-form>
 </div>
