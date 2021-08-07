@@ -47,4 +47,8 @@ export class CartService {
     this.carts = this.carts.filter(x => x.product_id !== cart.product_id);
     return this.carts;
   }
+
+  emptyCart(){
+    this.carts = [];
+  }
 }

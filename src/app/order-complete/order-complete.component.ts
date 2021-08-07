@@ -16,5 +16,7 @@ export class OrderCompleteComponent implements OnInit {
     this.sum = this.cartService.getTotalCost();
     this.username = this.orderService.getOrderInfo().name;
   }
-
+  ngAfterViewInit(){
+    this.cartService.emptyCart();
+  }
 }

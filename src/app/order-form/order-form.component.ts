@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderService } from '../services/order.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-order-form',
@@ -14,7 +15,7 @@ export class OrderFormComponent implements OnInit {
 
   @Input() sum: number;
 
-  constructor(private router: Router, private orderService: OrderService) {
+  constructor(private router: Router, private orderService: OrderService, private cartService: CartService) {
     this.sum = 0;
   }
 
