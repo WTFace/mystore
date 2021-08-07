@@ -1,14 +1,18 @@
 <form #form="ngForm" (ngSubmit)="order()" class="d-flex flex-column">
-    <input type="hidden" name="sum" [(ngModel)]="sum" value="${{sum.toFixed(2)}}">
+    <input type="hidden" name="sum" [(ngModel)]="sum" #total="ngModel" value="${{sum.toFixed(2)}}">
 
     <label for="">name</label>
-    <input type="text" name="name" [(ngModel)]="name" minlength="4" required>
+    <input type="text" name="name" [(ngModel)]="name" #username="ngModel" minlength="3" required autocomplete="off">
+    <div *ngIf="username.errors && username.dirty" class="text-danger">name should be minimum 3 letters</div>
 
-    <label for="">address</label>
-    <input type="text" name="address" [(ngModel)]="address" minlength="6" required>
+    <label for="" class="mt-3">address</label>
+    <input type="text" name="address" [(ngModel)]="address" #addr="ngModel" minlength="6" required autocomplete="off">
+    <div *ngIf="addr.errors && addr.touched" class="text-danger">address  should be minimum 6 letters</div>
 
-    <label for="">credit card number (numbers only)</label>
-    <input type="text" name="card" [(ngModel)]="card" minlength="16" pattern="[0-9]{16}" required>
+    <label for="" class="mt-3">credit card number (numbers only)</label>
+    <input type="text" name="card" [(ngModel)]="card" #cardNum="ngModel" minlength="16" pattern="[0-9]{16}" required>
+    <div *ngIf="cardNum.errors && cardNum.dirty" class="text-danger">card number should be 16 digits</div>
 
-    <button [disabled]="form.invalid" class="btn btn-primary mt-2">order</button>
+    <button [disabled]="form.invalid || total.value == 0" class="btn btn-primary mt-3">order</button>
+    <div *ngIf="form.valid && total.value == 0" class="text-danger">no product to order..</div>
 </form>
