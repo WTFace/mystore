@@ -8,6 +8,7 @@ import { Cart } from '../models/Cart';
 })
 export class CartService {
   carts: Cart[] = [];
+  productSet = new Set();
   constructor() { }
 
   addCart(product: Product, amount: number){
@@ -16,7 +17,17 @@ export class CartService {
       product: product,
       amount: amount
     }
-    this.carts.push(cart);
+    if (this.productSet.has(product.id)) {
+      for(const c of this.carts){
+        if(c.product_id === product.id){
+          c.amount += cart.amount;
+          break;
+        }
+      }
+    }else{
+      this.productSet.add(cart.product_id);
+      this.carts.push(cart);
+    }
     alert(`${amount} items are added`);
   }
 

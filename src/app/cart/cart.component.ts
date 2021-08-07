@@ -31,5 +31,6 @@ export class CartComponent implements OnInit {
   remove(cart: Cart){
     this.carts = this.cartService.removeFromCart(cart);
     this.sum = this.cartService.getTotalCost();
+    alert('item removed');
   }
 }
